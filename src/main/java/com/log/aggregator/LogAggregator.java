@@ -1,8 +1,13 @@
 package com.log.aggregator;
 
 public class LogAggregator{
-
     public static void main(String[] args){
-        System.out.println("Hello to production grade prototype of log aggregator tool");
+        FileReader fileReader = new FileReader();
+        try {
+            fileReader.readFile("logs/sample.txt");
+        } catch (Exception e) {
+            System.out.println("Failed to read File:"+e.getMessage());
+        }
+        
     }
 }
