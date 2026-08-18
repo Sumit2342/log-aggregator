@@ -1,5 +1,7 @@
 package com.log.aggregator;
 
+import com.log.aggregator.services.FileReader;
+
 public class LogAggregator{
     public static void main(String[] args){
         FileReader fileReader = new FileReader();
