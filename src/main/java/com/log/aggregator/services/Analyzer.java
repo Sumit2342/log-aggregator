@@ -8,6 +8,7 @@ public class Analyzer {
        String[] parts = line.toString().split(" ");
        if(parts.length < 4){
         System.out.println("Incomplete log line cannot be analyzed");
+        return;
        }
 
        String logLevel = parts[2];
@@ -21,6 +22,7 @@ public class Analyzer {
                 break;
             case "ERROR":
                 metrics.incrementErrorCount();
+                break;
             default:
                 break;
         }
