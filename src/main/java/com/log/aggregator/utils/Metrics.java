@@ -8,7 +8,7 @@ public class Metrics {
     private LongAdder warnCount = new LongAdder();
     private LongAdder infoCount = new LongAdder();
     private ConcurrentHashMap<String,Integer> metrics = new ConcurrentHashMap<>();
-    // getters
+
     public int getErrorCount (){
        return errorCount.intValue();
     }
@@ -18,7 +18,7 @@ public class Metrics {
     public int getInfoCount (){
         return infoCount.intValue();
     }
-    // setters
+
     public void incrementErrorCount(){
         errorCount.increment();
     }

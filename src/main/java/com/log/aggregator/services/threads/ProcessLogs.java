@@ -3,6 +3,8 @@ package com.log.aggregator.services.threads;
 import java.nio.ByteBuffer;
 
 import com.log.aggregator.services.Analyzer;
+import com.log.aggregator.services.Parser;
+import com.log.aggregator.utils.LogEntry;
 import com.log.aggregator.utils.Metrics;
 
 public class ProcessLogs implements Runnable{
@@ -20,7 +22,10 @@ public class ProcessLogs implements Runnable{
         while(byteBuffer.hasRemaining()){
             char c = (char)byteBuffer.get();
             if(c == '\n'){
-                analyzer.processLogLine(line,metrics);
+                LogEntry logEntry = Parser.parse(line.toString());
+                if(logEntry != null){
+                    analyzer.processLogLine(logEntry,metrics);
+                }
                 line.setLength(0);
             }
             else {
