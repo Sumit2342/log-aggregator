@@ -37,6 +37,7 @@ public class FileReader {
             Thread.currentThread().interrupt();
         }
         
+        metrics.getServiceErrors();
     }
     
     private ByteBuffer extractCompleteChunk(ByteBuffer byteBuffer){
